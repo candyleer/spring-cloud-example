@@ -2,11 +2,12 @@ package io.github.candyleer.springcloudconsumer;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
-@FeignClient(name = "spring-cloud-producer")
-public interface HelloRemote {
+import java.util.Map;
+
+@FeignClient(name = "spring-cloud-provider")
+public interface RemoteHelloService {
 
     @RequestMapping(value = "/hello")
-    String hello(@RequestParam(value = "name") String name);
+    Map<String, String> hello();
 }

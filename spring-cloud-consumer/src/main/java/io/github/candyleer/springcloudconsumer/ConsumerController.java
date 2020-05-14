@@ -1,18 +1,19 @@
 package io.github.candyleer.springcloudconsumer;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Map;
 
 @RestController
 public class ConsumerController {
 
     @Autowired
-    private HelloRemote helloRemote;
+    private RemoteHelloService remoteHelloService;
 
-    @RequestMapping("/hello/{name}")
-    public String index(@PathVariable("name") String name) {
-        return helloRemote.hello(name);
+    @RequestMapping("/hello")
+    public Map<String, String> index() {
+        return remoteHelloService.hello();
     }
 }

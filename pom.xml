@@ -23,6 +23,7 @@
     <modules>
         <module>spring-cloud-eureka-server</module>
         <module>spring-cloud-provider</module>
+        <module>spring-cloud-consumer</module>
     </modules>
 
     <dependencyManagement>
