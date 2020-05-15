@@ -6,9 +6,24 @@ server:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://spring-cloud-eureka-server-svc:8080
+      defaultZone: http://spring-cloud-eureka-server-svc:${server.port}
     register-with-eureka: false
     fetch-registry: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+  endpoint:
+    health:
+      show-details: always
+
+  metrics:
+    tags:
+      application: spring-cloud-eureka
+
 #---
 #spring:
 #  application:
