@@ -31,5 +31,8 @@ kubectl apply -f deploy/consumer.yaml
 
 访问 http://<consumer pod ip>:8080/hello 测试是否通
 ```
-
+## Monitor
+```bash
+/actuator/prometheus
+```
 
