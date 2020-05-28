@@ -3,10 +3,20 @@ spring:
     name: spring-cloud-eureka
 server:
   port: 8080
+  ssl:
+    key-store: classpath:springcloudserver.p12
+    key-store-password: 123456
+    key-store-type: PKCS12
+    key-alias: server
+    enabled: true
 eureka:
+  instance:
+    secure-port: 8080
+    non-secure-port-enabled: false
+    secure-port-enabled: true
   client:
     serviceUrl:
-      defaultZone: http://spring-cloud-eureka-server-svc:${server.port}
+      defaultZone: https://spring-cloud-eureka-server-svc:${server.port}
     register-with-eureka: false
     fetch-registry: false
 

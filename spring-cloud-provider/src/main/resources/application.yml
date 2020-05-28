@@ -2,13 +2,19 @@ spring:
   application:
     name: spring-cloud-provider
 server:
-  port: 8080
+  port: 8443
+  ssl:
+    key-store: classpath:springcloudserver.p12
+    key-store-password: 123456
+    key-store-type: PKCS12
+    key-alias: server
+    enabled: true
 eureka:
   instance:
     prefer-ip-address: true
   client:
     service-url:
-      defaultZone: http://spring-cloud-eureka-server-svc:8080/eureka/
+      defaultZone: https://spring-cloud-eureka-server-svc:8080/eureka/
 
 management:
   endpoints:
@@ -23,3 +29,7 @@ management:
   metrics:
     tags:
       application: spring-cloud-provider
+
+ssl:
+  key-store: springcloudclient.p12
+  key-store-password: 123456

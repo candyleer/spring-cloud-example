@@ -8,13 +8,17 @@ eureka:
     prefer-ip-address: true
   client:
     service-url:
-      defaultZone: http://spring-cloud-eureka-server-svc:8080/eureka/
+      defaultZone: https://spring-cloud-eureka-server-svc:8080/eureka/
+    registry-fetch-interval-seconds: 5
 
 feign:
   httpclient:
     enabled: false
   okhttp:
     enabled: true
+
+ribbon:
+  ServerListRefreshInterval: 30000
 
 management:
   endpoints:
@@ -29,3 +33,7 @@ management:
   metrics:
     tags:
       application: spring-cloud-consumer
+
+ssl:
+  key-store: springcloudclient.p12
+  key-store-password: 123456
