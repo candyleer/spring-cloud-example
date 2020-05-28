@@ -14,7 +14,7 @@ import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.cert.CertificateException;
 
-@Configuration
+//@Configuration
 public class EurekaClientHttpsCfg {
 
     @Value("${ssl.key-store}")
